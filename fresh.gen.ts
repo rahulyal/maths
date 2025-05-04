@@ -11,13 +11,19 @@ import * as $generate_video from "./routes/generate/video.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $test_canvas from "./routes/test/canvas.tsx";
+import * as $test_canvas0 from "./routes/test/canvas0.tsx";
 import * as $test_math from "./routes/test/math.tsx";
 import * as $test_mathanimation from "./routes/test/mathanimation.tsx";
+import * as $test_svg_math from "./routes/test/svg-math.tsx";
+import * as $test_visiblemath from "./routes/test/visiblemath.tsx";
 import * as $CanvasTest from "./islands/CanvasTest.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import * as $MathAnimation from "./islands/MathAnimation.tsx";
 import * as $MathCanvas from "./islands/MathCanvas.tsx";
+import * as $SVGMathAnimation from "./islands/SVGMathAnimation.tsx";
+import * as $SimpleCanvas from "./islands/SimpleCanvas.tsx";
 import * as $VideoGenerator from "./islands/VideoGenerator.tsx";
+import * as $VisibleMath from "./islands/VisibleMath.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -31,15 +37,21 @@ const manifest = {
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
     "./routes/test/canvas.tsx": $test_canvas,
+    "./routes/test/canvas0.tsx": $test_canvas0,
     "./routes/test/math.tsx": $test_math,
     "./routes/test/mathanimation.tsx": $test_mathanimation,
+    "./routes/test/svg-math.tsx": $test_svg_math,
+    "./routes/test/visiblemath.tsx": $test_visiblemath,
   },
   islands: {
     "./islands/CanvasTest.tsx": $CanvasTest,
     "./islands/Counter.tsx": $Counter,
     "./islands/MathAnimation.tsx": $MathAnimation,
     "./islands/MathCanvas.tsx": $MathCanvas,
+    "./islands/SVGMathAnimation.tsx": $SVGMathAnimation,
+    "./islands/SimpleCanvas.tsx": $SimpleCanvas,
     "./islands/VideoGenerator.tsx": $VideoGenerator,
+    "./islands/VisibleMath.tsx": $VisibleMath,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;
