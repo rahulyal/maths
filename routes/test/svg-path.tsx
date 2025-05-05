@@ -1,5 +1,6 @@
 // routes/test/svg-path.tsx
 import { Head } from "$fresh/runtime.ts";
+import PathBasedMath from "../../islands/PathBasedMath.tsx";
 import SVGPathAnimation from "../../islands/SVGPathAnimation.tsx";
 
 export default function SVGPathTest() {
@@ -23,6 +24,71 @@ export default function SVGPathTest() {
               strokeColor="#3498db"
               strokeWidth={4}
               duration={1500}
+            />
+          </div>
+
+          {/* Hello SVG Animation */}
+          <div class="p-6 bg-white rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Hello World (From SVG)</h2>
+            <SVGPathAnimation
+              svgPath="/hello.svg"
+              width={400}
+              height={200}
+              strokeColor="#2563eb"
+              strokeWidth={1}
+              duration={50000}
+            />
+          </div>
+
+          {/* Handwritten style hello */}
+          <div class="p-6 bg-white rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">
+              Hello (Handwritten Style)
+            </h2>
+            <SVGPathAnimation
+              svgPath="M10,50 h15 v-30 v30 m20,0 v-30 v30 l15,-30 v30 m20,0 v-30 v30 l15,-30 v30 m20,0 h15 a15,15 0 1,1 0,30 h-15 z"
+              width={220}
+              height={100}
+              strokeColor="#34495e"
+              strokeWidth={2}
+              duration={3000}
+            />
+          </div>
+
+          {/* PathBasedMath -  */}
+
+          <PathBasedMath
+            latex="E = mc^2"
+            width={600}
+            height={300}
+            strokeColor="#e67e22"
+            strokeWidth={2}
+            duration={2000}
+          />
+
+          {/* Text animation test */}
+          <div class="p-6 bg-white rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Animated Text</h2>
+            <PathBasedMath
+              latex="HELLO MATH"
+              width={600}
+              height={300}
+              strokeColor="#3498db"
+              strokeWidth={2}
+              duration={3000}
+            />
+          </div>
+
+          {/* Text with math */}
+          <div class="p-6 bg-white rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Mixed Text and Math</h2>
+            <PathBasedMath
+              latex="X = 2Y + Z"
+              width={600}
+              height={300}
+              strokeColor="#e74c3c"
+              strokeWidth={2}
+              duration={2000}
             />
           </div>
 

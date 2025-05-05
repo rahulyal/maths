@@ -20,6 +20,7 @@ import * as $CanvasTest from "./islands/CanvasTest.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import * as $MathAnimation from "./islands/MathAnimation.tsx";
 import * as $MathCanvas from "./islands/MathCanvas.tsx";
+import * as $PathBasedMath from "./islands/PathBasedMath.tsx";
 import * as $SVGPathAnimation from "./islands/SVGPathAnimation.tsx";
 import * as $SimpleCanvas from "./islands/SimpleCanvas.tsx";
 import * as $VideoGenerator from "./islands/VideoGenerator.tsx";
@@ -48,6 +49,7 @@ const manifest = {
     "./islands/Counter.tsx": $Counter,
     "./islands/MathAnimation.tsx": $MathAnimation,
     "./islands/MathCanvas.tsx": $MathCanvas,
+    "./islands/PathBasedMath.tsx": $PathBasedMath,
     "./islands/SVGPathAnimation.tsx": $SVGPathAnimation,
     "./islands/SimpleCanvas.tsx": $SimpleCanvas,
     "./islands/VideoGenerator.tsx": $VideoGenerator,

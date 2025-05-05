@@ -28,9 +28,30 @@ export default function SVGPathAnimation({
   const [animationInstance, setAnimationInstance] = useState<
     ReturnType<typeof animate> | null
   >(null);
+  const [pathData, setPathData] = useState<string>(svgPath);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    // If svgPath starts with '/', it's a file path
+    if (svgPath.startsWith("/")) {
+      fetch(svgPath)
+        .then((response) => response.text())
+        .then((svgContent) => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(svgContent, "image/svg+xml");
+          const pathElements = doc.querySelectorAll("path");
+          // Combine all path data if multiple paths exist
+          const combinedPath = Array.from(pathElements)
+            .map((path) => path.getAttribute("d"))
+            .filter(Boolean)
+            .join(" ");
+          setPathData(combinedPath);
+        })
+        .catch((error) => console.error("Error loading SVG:", error));
+    }
+  }, [svgPath]);
+
+  useEffect(() => {
+    if (!containerRef.current || !pathData) return;
 
     // Clear previous content
     containerRef.current.innerHTML = "";
@@ -50,7 +71,7 @@ export default function SVGPathAnimation({
       "http://www.w3.org/2000/svg",
       "path",
     );
-    pathElement.setAttribute("d", svgPath);
+    pathElement.setAttribute("d", pathData);
     pathElement.setAttribute("fill", "none");
     pathElement.setAttribute("stroke", strokeColor);
     pathElement.setAttribute("stroke-width", strokeWidth.toString());
@@ -62,12 +83,12 @@ export default function SVGPathAnimation({
     pathElement.setAttribute("stroke-dashoffset", pathLength.toString());
 
     const animation = animate(
-      pathElement, // First argument: targets
+      pathElement,
       {
-        strokeDashoffset: [pathLength, 0], // Animate from full offset to 0
+        strokeDashoffset: [pathLength, 0],
         duration: duration,
         delay: delay,
-        easing: "easeInOutSine", // Updated easing parameter
+        easing: "easeInOutSine",
         autoplay: autoplay,
       },
     );
@@ -80,7 +101,7 @@ export default function SVGPathAnimation({
       }
     };
   }, [
-    svgPath,
+    pathData,
     width,
     height,
     strokeColor,
