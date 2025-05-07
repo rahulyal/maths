@@ -19,7 +19,15 @@ export const MathEquation = z.object({
   position: Vector2D,
   fontSize: z.number().positive().default(24),
   color: Color.default({ r: 0, g: 0, b: 0, a: 1 }),
-  animationDuration: z.number().default(1000), // ms for handwritten effect
+  animationDuration: z.number().default(1000), // ms for animation effect
+  animationStyle: z.enum([
+    "handwritten",
+    "typewriter",
+    "fadeIn",
+    "none",
+  ]).default("handwritten"),
+  animationSteps: z.array(z.string()).optional(), // For step-by-step equation reveal
+  highlightColor: Color.optional(), // For highlighting parts of equation
 });
 
 // Function Graph

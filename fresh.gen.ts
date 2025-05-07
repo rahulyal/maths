@@ -10,9 +10,12 @@ import * as $generate_video from "./routes/generate/video.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $test_canvas from "./routes/test/canvas.tsx";
+import * as $test_katexmath from "./routes/test/katexmath.tsx";
 import * as $test_math from "./routes/test/math.tsx";
+import * as $test_server_render from "./routes/test/server-render.tsx";
 import * as $CanvasTest from "./islands/CanvasTest.tsx";
 import * as $Counter from "./islands/Counter.tsx";
+import * as $KatexMath from "./islands/KatexMath.tsx";
 import * as $MathCanvas from "./islands/MathCanvas.tsx";
 import * as $VideoGenerator from "./islands/VideoGenerator.tsx";
 import type { Manifest } from "$fresh/server.ts";
@@ -27,11 +30,14 @@ const manifest = {
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
     "./routes/test/canvas.tsx": $test_canvas,
+    "./routes/test/katexmath.tsx": $test_katexmath,
     "./routes/test/math.tsx": $test_math,
+    "./routes/test/server-render.tsx": $test_server_render,
   },
   islands: {
     "./islands/CanvasTest.tsx": $CanvasTest,
     "./islands/Counter.tsx": $Counter,
+    "./islands/KatexMath.tsx": $KatexMath,
     "./islands/MathCanvas.tsx": $MathCanvas,
     "./islands/VideoGenerator.tsx": $VideoGenerator,
   },
