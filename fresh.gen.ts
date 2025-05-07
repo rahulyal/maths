@@ -12,7 +12,6 @@ import * as $index from "./routes/index.tsx";
 import * as $test_canvas from "./routes/test/canvas.tsx";
 import * as $test_katexmath from "./routes/test/katexmath.tsx";
 import * as $test_math from "./routes/test/math.tsx";
-import * as $test_server_render from "./routes/test/server-render.tsx";
 import * as $CanvasTest from "./islands/CanvasTest.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import * as $KatexMath from "./islands/KatexMath.tsx";
@@ -32,7 +31,6 @@ const manifest = {
     "./routes/test/canvas.tsx": $test_canvas,
     "./routes/test/katexmath.tsx": $test_katexmath,
     "./routes/test/math.tsx": $test_math,
-    "./routes/test/server-render.tsx": $test_server_render,
   },
   islands: {
     "./islands/CanvasTest.tsx": $CanvasTest,

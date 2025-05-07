@@ -46,23 +46,23 @@ export function KatexMath() {
   useEffect(() => {
     // Ensure KaTeX styles are loaded
     ensureKatexStyles();
-    
+
     if (katexRef.current) {
       setAnimating(true);
-      
+
       // Use our utility function to render animated LaTeX
       renderAnimatedLatex(
         EXAMPLE_EQUATIONS[currentEquation].latex,
         katexRef.current,
         1500 / animationSpeed,
-        { fontSize: 24, customClass: "katex-display p-8 text-3xl" }
+        { fontSize: 24, customClass: "katex-display p-8 text-3xl" },
       );
-      
+
       // Set animating to false after animation completes
       const timer = setTimeout(() => {
         setAnimating(false);
       }, 1500 / animationSpeed);
-      
+
       return () => clearTimeout(timer);
     }
   }, [currentEquation, animationSpeed]);
@@ -81,18 +81,18 @@ export function KatexMath() {
 
   const replayAnimation = () => {
     if (animating) return;
-    
+
     // Simply re-render the current equation to restart animation
     if (katexRef.current) {
       setAnimating(true);
-      
+
       renderAnimatedLatex(
         EXAMPLE_EQUATIONS[currentEquation].latex,
         katexRef.current,
         1500 / animationSpeed,
-        { fontSize: 24, customClass: "katex-display p-8 text-3xl" }
+        { fontSize: 24, customClass: "katex-display p-8 text-3xl" },
       );
-      
+
       // Set animating to false after animation completes
       setTimeout(() => {
         setAnimating(false);
@@ -171,10 +171,10 @@ export function KatexMath() {
       <div class="bg-gray-50 p-4 rounded-lg">
         <h3 class="font-semibold mb-2">About This Demo</h3>
         <p>
-          This demo showcases KaTeX rendering with fade-in animations. 
-          Each equation is rendered with proper mathematical typesetting and
-          smoothly fades in. The equations can be viewed in sequence and
-          the animation speed can be adjusted.
+          This demo showcases KaTeX rendering with fade-in animations. Each
+          equation is rendered with proper mathematical typesetting and smoothly
+          fades in. The equations can be viewed in sequence and the animation
+          speed can be adjusted.
         </p>
       </div>
     </div>
